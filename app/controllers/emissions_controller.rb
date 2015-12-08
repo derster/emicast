@@ -1,0 +1,2 @@
+class EmissionsController < ApplicationController
+end
