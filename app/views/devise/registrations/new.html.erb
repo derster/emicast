@@ -27,6 +27,11 @@
           </div>
 
           <div class="field">
+            <%= f.label :logo_radio %>
+            <%= f.file_field :logo_radio  %>
+          </div>
+
+          <div class="field">
             <%= f.label :password %>
             <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em>

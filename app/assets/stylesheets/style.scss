@@ -376,6 +376,23 @@ input[type="submit"] {
     border: none;
 }
 
+#notice_wrapper{
+    width: 100%;
+    position: absolute;
+    background: rgba(208,103,82, 1);
+    z-index: 100000;
+    top:0;
+}
+
+#notice_wrapper p{
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.35rem;
+    margin: 0 !important;
+    padding: 20px !important;
+}
+
 @media (max-width: 992px) and (min-width: 900px){
     
     .col-sm-bx-1 {

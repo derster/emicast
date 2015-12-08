@@ -1,15 +1,16 @@
 class EmissionsController < ApplicationController
+	before_action :authenticate_admin!, except: [:index, :show]
   	before_action :find_emission, only: [:show, :edit, :update, :destroy]
 
 	def index
 	end
 
 	def new
-		@emission = Emission.new
+		@emission = current_admin.emissions.build
 	end
 
 	def create
-		@emission = Emission.new(emission_params)
+		@emission = current_admin.emissions.build(emission_params)
 		if @emission.save
 			redirect_to @emission
 		else
@@ -24,7 +25,7 @@ class EmissionsController < ApplicationController
 	end
 
 	def update
-		if @emission.update emission_params
+		if @emission.update(emission_params)
 			redirect_to @emission
 		else
 			render 'edit'
