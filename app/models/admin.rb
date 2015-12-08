@@ -6,4 +6,5 @@ class Admin < ActiveRecord::Base
 
   validates :nom, presence: true
   validates :nom_radio, presence: true
+  validates :bande_fm, presence: true
 end

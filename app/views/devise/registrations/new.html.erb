@@ -22,6 +22,11 @@
           </div>
 
           <div class="field">
+            <%= f.label :bande_fm %><br />
+            <%= f.text_field :bande_fm, class: "form-control" %>
+          </div>
+
+          <div class="field">
             <%= f.label :password %>
             <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em>
