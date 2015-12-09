@@ -27,6 +27,16 @@
         <%= f.text_field :youtube, class: "form-control" %>
       </div>
 
+      <div class="field">
+        <%= f.label :cover %>
+        <%= f.file_field :cover  %>
+      </div>
+
+      <div class="field">
+        <%= f.label :thumbnail %>
+        <%= f.file_field :thumbnail  %>
+      </div>
+
       <div class="actions">
         <%= f.submit %>
       </div>

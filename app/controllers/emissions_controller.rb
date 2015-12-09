@@ -44,6 +44,6 @@ class EmissionsController < ApplicationController
 		end 
 
 		def emission_params
-			params.require(:emission).permit(:title, :description, :facebook, :twitter, :youtube)
+			params.require(:emission).permit(:title, :description, :facebook, :twitter, :youtube, :cover, :thumbnail)
 		end
 end
