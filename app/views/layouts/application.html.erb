@@ -17,7 +17,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="../" class="navbar-brand">Emicast.com</a>
+      
+      <%= link_to "Emicast.com", root_path, class: "navbar-brand" %>
+
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
@@ -27,8 +29,8 @@
         <li><a href="#">Divertisemnts</a></li>
 
 		<% unless admin_signed_in? %>
-			<li><%= link_to "Inscription", new_admin_registration_path %></li>
-			<li><%= link_to "Connexion", new_admin_session_path %></li>
+			<li><%= link_to "Inscription", registration_path %></li>
+			<li><%= link_to "Connexion", login_path %></li>
 
 		<% else %>
 			<li><%= link_to "Deconnexion", destroy_admin_session_path, method: :delete, data:{confirm:"Are you sure?"} %></li>
