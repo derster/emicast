@@ -1,0 +1,13 @@
+ <%= form_for @category do |f| %>
+
+      <div class="field">
+      <%= @category.errors[:name].first %>
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, class: "form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+
+<% end %>
