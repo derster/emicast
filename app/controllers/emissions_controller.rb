@@ -1,8 +1,9 @@
 class EmissionsController < ApplicationController
 	before_action :authenticate_admin!, except: [:index, :show]
   	before_action :find_emission, only: [:show, :edit, :update, :destroy]
-
+  	before_action :find_categories, only: [:new, :edit, :update]
 	def index
+		@category_id = Category.find_by(name: params[:category]).id
 	end
 
 	def new
@@ -11,6 +12,7 @@ class EmissionsController < ApplicationController
 
 	def create
 		@emission = current_admin.emissions.build(emission_params)
+		@emission.category_id = params[:category_id]
 		if @emission.save
 			redirect_to @emission
 		else
@@ -22,9 +24,11 @@ class EmissionsController < ApplicationController
 	end
 
 	def edit
+		
 	end
 
 	def update
+		@emission.category_id = params[:category_id]
 		if @emission.update(emission_params)
 			redirect_to @emission
 		else
@@ -44,6 +48,10 @@ class EmissionsController < ApplicationController
 		end 
 
 		def emission_params
-			params.require(:emission).permit(:title, :description, :facebook, :twitter, :youtube, :cover, :thumbnail)
+			params.require(:emission).permit(:title, :description, :facebook, :twitter, :youtube, :cover, :thumbnail, :category_id)
+		end
+
+		def find_categories
+			@categories = Category.all.map { |c| [c.name, c.id]  }
 		end
 end

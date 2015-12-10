@@ -1,5 +1,6 @@
 class Emission < ActiveRecord::Base
 	belongs_to :admin
+	belongs_to :category
 
 	has_attached_file :thumbnail, styles: { medium: "400x400>", thumb: "200x200>" }
   	validates_attachment_content_type :thumbnail, content_type: /\Aimage\/.*\Z/
