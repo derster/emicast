@@ -1,0 +1,18 @@
+ <%= form_for ([@emission, @episode]) do |f| %>
+
+      <div class="field">
+        <%= f.label :titre %><br />
+        <%= @episode.errors[:title].first %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="field">
+        <%= f.label :description %><br />
+        <%= @episode.errors[:description].first %>
+        <%= f.text_area :description, class: "form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+
+<% end %>

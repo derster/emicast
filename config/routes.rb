@@ -2,16 +2,16 @@ Rails.application.routes.draw do
 
   devise_for :admins
 
-  as :admin do
-  	get "/login" => "devise/sessions#new"
+  get '/dashboard' => 'emissions#dashboard', as: 'dashboard'
 
-  	get "/registration" => "devise/registrations#new"
+
+  resources :emissions do
+  	resources :episodes
   end
 
-  root 'welcome#index'
-
-  resources :emissions
-
   resources :categories
+
+
+  root 'welcome#index'
   
 end

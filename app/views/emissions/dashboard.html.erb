@@ -1,0 +1,180 @@
+    <div class="dc-episode-b">
+          
+          <%= image_tag @admin.cover_radio.url(:medium) %>
+
+    </div>
+
+    <div class="container boxCoverN boxDchain">
+        
+      <div class="coverLogo">
+          <%= image_tag @admin.logo_radio.url(:medium) %>
+      </div>
+
+      <div class="episodeDesc">
+
+        <h1 class="nChain"><%= @admin.nom_radio %> / 
+          
+          <span class="fmChain"><%= @admin.bande_fm %>
+              <span><%= link_to image_tag('face.png'), "#" %></span> 
+              <span><%= link_to image_tag('twitter.png'), "#" %></span> 
+              <span><%= link_to image_tag('youtube.png'), "#" %></span>
+          </span>
+
+        </h1>
+        
+        <p class="descEp">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati illum similique, vitae soluta provident modi quia! Id fugiat vitae est, itaque ipsam recusandae fuga suscipit ut temporibus eum dignissimos blanditiis!</p>
+      </div>
+
+    </div>
+
+
+    <div class="container contAd">
+ 
+    <nav id="bs-navbar" class="collapse navbar-collapse navAd">
+
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Emissions", emissions_path %></li>
+
+        <li><%= link_to "Ajouter une emission", new_emission_path %></li>
+
+        <li><%= link_to "Editer le profil", edit_admin_registration_path %></li>
+      </ul>
+      
+
+    </nav>
+      
+    </div>
+
+
+
+    <div class="container boxDchain">
+
+        <div class=" boxEpisodeCh">
+      
+      <% @emissions.each do |emission| %>
+        
+            <div class="boxEpisode boxEpOne">
+              <a href="#">
+
+              <%= link_to emission do %>
+
+                  <div class="imgBx">
+                      
+                      <%= image_tag emission.thumbnail.url(:medium) %>
+                  </div>
+
+                  <div class="textBx">
+                      
+                      <h3><%= emission.title %></h3>
+
+                      <p class="desc"><%= emission.description %></p>
+                      <p class="date"><i class="glyphicon glyphicon-time"></i><%= emission.created_at %></p>
+
+                       <div class="lien">
+
+                           <%= link_to "Voir les episodes", emission_path(emission), class:"adLink" %> 
+
+                           <a class="adLink" href="#">Supprimer</a> 
+
+                           <%= link_to "Modifier", edit_emission_path(emission), class:"adLink" %>
+
+                       </div>
+                  </div>
+
+                  <div class="clear"></div>
+              </a>
+
+               <% end %>
+            </div>
+         
+        <% end %>
+            
+
+            <div class="boxEpisode boxEpOne">
+              <a href="#">
+
+                  <div class="imgBx">
+                      <%= image_tag('img2.jpg'); %>
+                  </div>
+
+                  <div class="textBx">
+                      
+                      <h3>After Work avec Thierry</h3>
+
+                      <p class="desc">Kitsch beard viral, XOXO forage hoodie vinyl tacos authentic</p>
+                      <p class="date"><i class="glyphicon glyphicon-time"></i>Publié le 10/12/2015</p>
+
+                       <div class="lien"><a class="adLink" href="#">Voir les episodes</a> <a class="adLink" href="#">Supprimer</a> <a class="adLink" href="#">Modifier</a></div>
+                  </div>
+
+                  <div class="clear"></div>
+              </a>
+            </div>
+
+            <div class="boxEpisode boxEpOne">
+              <a href="#">
+
+                  <div class="imgBx">
+                      <%= image_tag('img3.jpg'); %>
+                  </div>
+
+                  <div class="textBx">
+                      
+                      <h3>After Work avec Thierry</h3>
+
+                      <p class="desc">Kitsch beard viral, XOXO forage hoodie vinyl tacos authentic</p>
+                      <p class="date"><i class="glyphicon glyphicon-time"></i>Publié le 10/12/2015</p>
+
+                       <div class="lien"><a class="adLink" href="#">Voir les episodes</a> <a class="adLink" href="#">Supprimer</a> <a class="adLink" href="#">Modifier</a></div>
+                  </div>
+
+                  <div class="clear"></div>
+              </a>
+            </div>
+
+            <div class="boxEpisode boxEpOne">
+              <a href="#">
+
+                  <div class="imgBx">
+                      <%= image_tag('img4.jpg'); %>
+                  </div>
+
+                  <div class="textBx">
+                      
+                      <h3>After Work avec Thierry</h3>
+
+                      <p class="desc">Kitsch beard viral, XOXO forage hoodie vinyl tacos authentic</p>
+                      <p class="date"><i class="glyphicon glyphicon-time"></i>Publié le 10/12/2015</p>
+
+                      <div class="lien"><a class="adLink" href="#">Voir les episodes</a> <a class="adLink" href="#">Supprimer</a> <a class="adLink" href="#">Modifier</a></div>
+
+                  </div>
+
+                  <div class="clear"></div>
+              </a>
+            </div>
+
+        <nav>
+          <ul class="pagination">
+            <li>
+              <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+              <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        </div>
+     
+
+    </div>

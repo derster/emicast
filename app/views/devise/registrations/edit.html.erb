@@ -31,6 +31,11 @@
     <%= f.file_field :logo_radio  %>
   </div>
 
+  <div class="field">
+    <%= f.label :cover_radio %>
+    <%= f.file_field :cover_radio  %>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

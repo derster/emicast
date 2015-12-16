@@ -11,21 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209221835) do
+ActiveRecord::Schema.define(version: 20151216090851) do
 
   create_table "admins", force: :cascade do |t|
-    t.string   "email",                   default: "", null: false
-    t.string   "encrypted_password",      default: "", null: false
+    t.string   "email",                    default: "", null: false
+    t.string   "encrypted_password",       default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",           default: 0,  null: false
+    t.integer  "sign_in_count",            default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "nom"
     t.string   "nom_radio"
     t.string   "bande_fm"
@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(version: 20151209221835) do
     t.string   "logo_radio_content_type"
     t.integer  "logo_radio_file_size"
     t.datetime "logo_radio_updated_at"
+    t.string   "cover_radio_file_name"
+    t.string   "cover_radio_content_type"
+    t.integer  "cover_radio_file_size"
+    t.datetime "cover_radio_updated_at"
   end
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
@@ -63,6 +67,14 @@ ActiveRecord::Schema.define(version: 20151209221835) do
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
     t.integer  "category_id"
+  end
+
+  create_table "episodes", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "emission_id"
   end
 
   create_table "users", force: :cascade do |t|

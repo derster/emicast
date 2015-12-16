@@ -75,6 +75,9 @@ a:hover{
     text-align: center;
     text-shadow: 0 1px 0 rgba(0,0,0,.1);
     background-size: cover; 
+    max-width: 1050px;
+    width: 100%;
+    margin: auto;
 }
 
 .dc-episode-b img{
@@ -235,11 +238,12 @@ footer.footer{
     padding: 10px;
 }
 .nChain{
-    margin-top: -103px;
+    margin-top: -12px;
     font-weight: 800;
     color: #555;
-    padding: 5px;
+    padding: 8px;
     margin-bottom: 0;
+    font-size: 24px;
 }
 
 .fmChain{
@@ -249,6 +253,43 @@ footer.footer{
     margin-top: -7px;
     padding: 5px;
 }
+
+.contAd{
+    padding-left:0 !important;
+    padding-right: 0 !important;
+}
+
+.navAd{
+    background: #555;
+    padding-left:0;
+    padding-right: 0;
+}
+
+.navAd a{
+    color: #fff !important;
+    font-size: 18px;
+}
+
+.navAd a:hover{
+    background: #00a0c2 !important;
+}
+
+div.lien a.adLink{
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #41a305;
+    color: #fff;
+}
+
+span.emi{
+    display: block;
+    font-size: 19px;
+    color: #777;
+    margin-top: 10px;
+}
+
+
 p.descEp{
     padding: 10px;
     padding: 10px;

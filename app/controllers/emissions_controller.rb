@@ -2,12 +2,18 @@ class EmissionsController < ApplicationController
 	before_action :authenticate_admin!, except: [:index, :show]
   	before_action :find_emission, only: [:show, :edit, :update, :destroy]
   	before_action :find_categories, only: [:new, :edit, :update]
+  	before_filter :require_permission, only: [:edit]
 	def index
-		@category_id = Category.find_by(name: params[:category]).id
+		
 	end
 
 	def new
 		@emission = current_admin.emissions.build
+	end
+
+	def dashboard
+		@admin = Admin.find(current_admin.id)
+		@emissions = Emission.all
 	end
 
 	def create
@@ -24,7 +30,6 @@ class EmissionsController < ApplicationController
 	end
 
 	def edit
-		
 	end
 
 	def update
@@ -38,11 +43,15 @@ class EmissionsController < ApplicationController
 
 	def destroy
 		@emission.destroy
-
 		redirect_to root_path
 	end
 
 	private
+
+		def find_categories
+			@categories = Category.all.map { |c| [c.name, c.id]  }
+		end
+
 		def find_emission
 			@emission = Emission.find(params[:id])
 		end 
@@ -51,7 +60,10 @@ class EmissionsController < ApplicationController
 			params.require(:emission).permit(:title, :description, :facebook, :twitter, :youtube, :cover, :thumbnail, :category_id)
 		end
 
-		def find_categories
-			@categories = Category.all.map { |c| [c.name, c.id]  }
+		def require_permission
+			if current_admin.id != @emission.admin_id
+				redirect_to root_path, notice: "Vous êtes pas autoriser à acceder à cette page !"
+			end
 		end
+
 end

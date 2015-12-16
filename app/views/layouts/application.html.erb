@@ -28,13 +28,17 @@
         <li><a href="#">Actualités</a></li>
         <li><a href="#">Divertisemnts</a></li>
 
-		<% unless admin_signed_in? %>
-			<li><%= link_to "Inscription", registration_path %></li>
-			<li><%= link_to "Connexion", login_path %></li>
+    		<% unless admin_signed_in? %>
 
-		<% else %>
-			<li><%= link_to "Deconnexion", destroy_admin_session_path, method: :delete, data:{confirm:"Are you sure?"} %></li>
-		<% end %>
+    			<li><%= link_to "Inscription", new_admin_registration_path %></li>
+    			<li><%= link_to "Connexion", new_admin_session_path %></li>
+
+    		<% else %>
+          <li><%= link_to "Dashboard", dashboard_path %></li>
+          <li><%= link_to "Emission", new_emission_path %></li>
+    			<li><%= link_to "Deconnexion", destroy_admin_session_path, method: :delete, data:{confirm:"Are you sure?"} %></li>
+    		<% end %>
+
       </ul>
     </div><!--/.navbar-collapse -->
   </div>
@@ -50,6 +54,7 @@
       <p class="notice"><%= notice %></p>
   </div>
 <% end %>
+
 
 <%= yield %>
 

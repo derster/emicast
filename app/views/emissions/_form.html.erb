@@ -1,16 +1,18 @@
  <%= form_for @emission do |f| %>
 
-      <div class="field">
-       <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Selectionner une categorie", class: "form-control") %>
-
+      <div class="field"> 
+        <%= @emission.errors[:category_id].first %>
+        <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Selectionner une categorie", class: "form-control") %>
        </div>
 
       <div class="field">
         <%= f.label :titre %><br />
+        <%= @emission.errors[:title].first %>
         <%= f.text_field :title, class: "form-control" %>
       </div>
       <div class="field">
         <%= f.label :description %><br />
+        <%= @emission.errors[:description].first %>
         <%= f.text_area :description, class: "form-control" %>
       </div>
 
