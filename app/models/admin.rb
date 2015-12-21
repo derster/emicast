@@ -16,6 +16,6 @@ class Admin < ActiveRecord::Base
   has_attached_file :logo_radio, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :logo_radio, content_type: /\Aimage\/.*\Z/
 
-  has_attached_file :cover_radio, styles: { medium: "1050x328>", thumb: "525x164>" }
+  has_attached_file :cover_radio, styles: { medium: "1152x368>", thumb: "384x256>" }
   validates_attachment_content_type :cover_radio, content_type: /\Aimage\/.*\Z/
 end

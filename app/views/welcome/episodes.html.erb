@@ -1,0 +1,32 @@
+<div class="container boxDchain2">
+
+    <h2>Les dernières emissions ajoutées</h2>
+
+      	<div class="row boxEpisU">
+	       	
+	       	<% @episodes.each do |episode| %>
+
+	       	<div class="col-md-3 boxEpisode col-sm-bx-1">
+	          
+	          <%= link_to emission_episode_path(episode.emission, episode) do %>
+
+	              <%= image_tag episode.thumbnail.url(:medium), class:"imgHeight"%>
+
+	              <div class="boxChain"><%= episode.emission.admin.nom_radio %></div>
+	              <div class="bClassP">
+	                  <h3><%= episode.emission.category.name %></h3>
+	                  <h4><%= episode.emission.title %></h4>
+	                  <p class="desc"><%= truncate(episode.description, :length => 50) %></p>
+	                  <p class="date"><i class="glyphicon glyphicon-time"></i>Publié le <%= episode.created_at %></p>
+	                    
+	              </div>
+	        	<% end %>
+	        </div>
+
+	        <% end %>
+
+    	</div>
+
+    <p class="btn-explore"><a href="#">EXPLORER</a></p>
+
+    </div>

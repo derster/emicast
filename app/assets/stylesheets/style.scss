@@ -11,6 +11,13 @@ a:hover{
     text-decoration: none;
 }
 
+
+a:active, a:focus{
+    text-decoration: none;
+    background: transparent;
+    
+}
+
 .container {
     max-width: 1050px;
     width: 100%;
@@ -24,6 +31,7 @@ a:hover{
 }
 .navbar-inverse {
     border-color: #00a0c2;
+    border-style: none;
 }
 
 .navbar a{
@@ -86,8 +94,11 @@ a:hover{
 
 .bs-docs-masthead h1{
     margin: 90px 0 80px 0;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 800;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-shadow: 0 0 1px rgba(0,0,0,0.6);
+
 }
 
 .search-input {
@@ -149,6 +160,11 @@ a:hover{
     position: relative;
 }
 
+.boxEpisode:hover {
+    box-shadow: 8px 3px 5px #ddd;
+    position: relative;
+}
+
 .boxEpisode a h3 {
     color: #515151;
     font-weight: 600;
@@ -187,10 +203,14 @@ a .boxChain{
     color: #fff;
     padding: 10px 20px;
     background: #b62f27;
-    top: 138px;
+    top: 120px;
     font-size: 15px !important;
     right: 0;
     margin: auto;
+}
+
+img.imgHeight{
+    height: 161px;
 }
 
 p.btn-explore a{
@@ -221,6 +241,21 @@ footer.footer{
 
 .boxDchain{
     padding: 0 !important;
+}
+
+.boxDchain h2{
+    font-size: 25px;
+    color: #777;
+}
+
+.boxDchain2{
+    padding: 0 !important;
+    margin-top: 60px;
+}
+
+.textEpiso{
+    padding:10px;
+    text-align: justify;
 }
 
 .coverLogo{
@@ -259,8 +294,17 @@ footer.footer{
     padding-right: 0 !important;
 }
 
+.contAd2{
+    padding-left:0 !important;
+    padding-right: 0 !important;
+    margin-top: 60px;
+}
+.contAd2 h2{
+    margin-left: 10px;
+    margin-bottom: 0;
+}
 .navAd{
-    background: #555;
+    background: #999;
     padding-left:0;
     padding-right: 0;
 }
@@ -293,7 +337,7 @@ span.emi{
 p.descEp{
     padding: 10px;
     padding: 10px;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: 400;
     color: #999;
 }
@@ -305,10 +349,19 @@ p.descEp{
 
 .imgBx{
     float: left;
+    width: 287px;
+    height: 192px;
+    overflow: hidden;
+}
+
+.imgBx img{
+    height: 192px;
+    width: 288px;
 }
 .textBx{
     float: left;
     margin-left: 10px;
+    width: 67%;
 }
 
 .boxEptwo{
@@ -354,7 +407,7 @@ p.descEp{
     border-radius: 20px !important;
 }
 
-.pagination>li>a, .pagination>li>span {
+.pagination a, .pagination span {
     position: relative;
     float: left;
     padding: 6px 20px; 
@@ -365,6 +418,20 @@ p.descEp{
     background-color: #fff;
     border-radius: 20px;
     margin-left: 5px;
+}
+
+.pagination .current{
+    position: relative;
+    float: left;
+    padding: 6px 20px; 
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #999;
+    text-decoration: none;
+    background-color: #ddd;
+    border-radius: 20px;
+    margin-left: 5px;
+    font-style: normal;
 }
 
 .boxForm{
@@ -432,6 +499,142 @@ input[type="submit"] {
     font-size: 1.35rem;
     margin: 0 !important;
     padding: 20px !important;
+}
+
+.imgBxEp img{
+    width: 100%;
+}
+
+.imgBxEpL{
+    float: left;
+    height: 90px;
+    overflow: hidden;
+}
+
+.imgBxEpL img{
+    height: 90px;
+}
+
+
+
+
+
+
+
+
+div.jp-type-single{
+  width: 70%;
+    margin: auto;
+
+}
+.jp-jplayer, .jp-audio{
+    width: 100%;
+    position:fixed;
+    left: 0;
+    bottom: 0;
+    background: #2d2d2d;
+    padding: 10px;
+}
+
+.jp-title{
+    font-size: 12px;
+    text-align: center;
+    color:#999;
+}
+
+.jp-title ul{
+    padding:0;
+    margin:0;
+    list-style: none;
+}
+
+.jp-gui{
+    position: relative;
+    background: #2d2d2d;
+    transition: background .4s ease-in-out;
+    border-radius:3px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+.jp-controls{
+    padding: 0;
+    margin:0;
+    list-style: none;
+    font-family: "FontAwesome"
+}
+
+.jp-controls li{
+    display: inline;
+}
+
+.jp-controls li{
+    color: #fff;
+}
+.jp-play, .jp-pause{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    line-height: 27px;
+    border: 1px solid #777;
+    border-radius: 30px;
+}
+
+.jp-controls .jp-play:hover, .jp-controls .jp-pause:hover{
+    background-color: #888;
+}
+.jp-mute, .jp-unmute{
+    position: absolute;
+    right: 59px;
+    top:-5px;
+    width: 20px;
+    height: 30px;
+    display: inline-block;
+    line-height: 42px;
+}
+.jp-mute{
+    text-align:left;
+}
+.jp-time-holder{
+    color:#fff;
+    font-size: 12px;
+    line-height: 6px;
+    position: absolute;
+    right: 90px;
+    top:14px;
+}
+
+.jp-progress{
+    background-color: #fff;
+    border-radius: 20px 20px 20px 20px;
+    overflow: hidden;
+    position: absolute;
+    right: 14%;
+    top: 14px;
+    width: 82%;
+}
+
+.jp-play-bar{
+    height: 5px;
+    background-color: #00a0c2;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.jp-volume-bar{
+    position: absolute;
+    right: 10px;
+    top:14px;
+    width:45px;
+    height: 5px;
+    border-radius:20px 20px 20px 20px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.jp-volume-bar-value{
+    background-color: #00a0c2;
+    height: 5px;
+    border-radius: 20px 20px 20px 20px;
 }
 
 @media (max-width: 992px) and (min-width: 900px){

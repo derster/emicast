@@ -19,7 +19,7 @@ class EpisodesController < ApplicationController
 	  end
 
 	  def show
-	    @episodes = Episode.where(emission_id: @emission).order("created_at DESC").limit(2).reject{ |e| e.id == @episode.id}
+	    @episodes = Episode.where(emission_id: @emission).order("created_at DESC").limit(10).reject{ |e| e.id == @episode.id}
 	  end
 
 	  def edit
@@ -41,7 +41,7 @@ class EpisodesController < ApplicationController
 	  private
 
 	  def episode_params
-	    params.require(:episode).permit(:title, :description)
+	    params.require(:episode).permit(:title, :description, :thumbnail, :mp3)
 	  end
 	  def find_emission
 	    @emission = Emission.find(params[:emission_id])

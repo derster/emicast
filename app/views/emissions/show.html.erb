@@ -1,1 +1,100 @@
-<h1>Show Page</h1>
+<div class="dc-episode-b">
+  
+  <%= image_tag @emission.cover.url(:medium) %>
+
+</div>
+
+<div class="container boxCoverN boxDchain">
+
+      <div class="coverLogo">
+      <%= image_tag @admin.logo_radio.url(:medium) %>
+      </div>
+
+      <div class="episodeDesc">
+
+      <h1 class="nChain"><%= @admin.nom_radio %> / 
+        
+        <span class="fmChain">
+            <span><%= link_to image_tag('face.png'), "#" %></span> 
+            <span><%= link_to image_tag('twitter.png'), "#" %></span> 
+            <span><%= link_to image_tag('youtube.png'), "#" %></span>
+        </span>
+
+      </h1>
+
+
+      </div>
+
+      <div class="container contAd2">
+
+      <nav id="bs-navbar" class="collapse navbar-collapse navAd">
+
+          <ul class="nav navbar-nav">
+              <li><%= link_to "Emissions", emissions_path %></li>
+
+              <li><%= link_to "Ajouter une episode",  new_emission_episode_path(@emission) %></li>
+
+              <li><%= link_to "Editer l'emission", edit_emission_path %></li>
+          </ul>
+
+
+      </nav>
+
+      <h2><%= @emission.title %></h2>
+
+      <p class="descEp"><%= @emission.description %></p>
+
+      </div>
+
+
+
+      </div>
+
+
+
+
+
+
+
+      <div class="container boxDchain">
+
+      <h2>Les episodes de cette emisson</h2>
+
+      <div class=" boxEpisodeCh">
+
+      <% @episodes.each do |episode| %>
+
+          <div class="boxEpisode boxEpOne">
+
+                <div class="imgBx">
+                    
+                    <%= image_tag episode.thumbnail.url(:medium) %>
+
+                </div>
+
+                <div class="textBx">
+                    
+                    <h3><%=link_to episode.title, emission_episode_path(@emission, episode)  %></h3>
+
+                    <p class="desc"><%= truncate(episode.description, :length => 120) %></p>
+                    <p class="date"><i class="glyphicon glyphicon-time"></i><%= episode.created_at %></p>
+
+                     <div class="lien">
+
+                         <%= link_to "Ecouter", emission_episode_path(@emission, episode), class:"adLink" %> 
+
+                         <a class="adLink" href="#">Supprimer</a> 
+
+                         <%= link_to "Modifier", edit_emission_episode_path(@emission, episode), class:"adLink" %>
+
+                     </div>
+                </div>
+             <div class="clear"></div>
+          </div>
+       
+      <% end %>
+
+      <%= will_paginate @episodes, previous_label: "&laquo;", next_label: "&raquo;" %>
+
+    </div>
+</div>

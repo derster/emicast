@@ -1,0 +1,29 @@
+    <div class="container boxDchain2">
+
+    <h2>Les dernières emissions ajoutées</h2>
+
+      	<div class="row boxEpisU">
+	       	
+	       	<% @emissions.each do |emission| %>
+
+	       	<div class="col-md-3 boxemission col-sm-bx-1">
+	          
+	          <%= link_to emission_path(emission) do %>
+
+	              <%= image_tag emission.thumbnail.url(:medium), class:"imgHeight"%>
+
+	              <div class="boxChain"><%= emission.admin.nom_radio %></div>
+	              <div class="bClassP">
+	                 
+	                  <h4><%= emission.title %></h4>
+	                  <p class="desc"><%= truncate(emission.description, :length => 50) %></p>
+	                    
+	              </div>
+	        	<% end %>
+	        </div>
+
+	        <% end %>
+
+    	</div>
+
+    </div>

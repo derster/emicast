@@ -1,10 +1,24 @@
 class EmissionsController < ApplicationController
-	before_action :authenticate_admin!, except: [:index, :show]
+	before_action :authenticate_admin!, except: [:index, :show, :search]
   	before_action :find_emission, only: [:show, :edit, :update, :destroy]
   	before_action :find_categories, only: [:new, :edit, :update]
   	before_filter :require_permission, only: [:edit]
+	
 	def index
-		
+		if params[:category].blank?
+	      @emissions = Emission.all.order("created_at DESC")
+	    else
+	      @category_id = Category.find_by(name: params[:category]).id
+	      @emissions = Emission.where(:category_id => @category_id).order("created_at DESC")
+	    end	
+	end
+
+	def search
+		if params[:search].present?
+		  @emissions = Emission.search(params[:search])
+		else
+		  @emissions = Emission.all.order("created_at DESC")
+		end
 	end
 
 	def new
@@ -13,7 +27,7 @@ class EmissionsController < ApplicationController
 
 	def dashboard
 		@admin = Admin.find(current_admin.id)
-		@emissions = Emission.all
+		@emissions = Emission.where(admin_id: current_admin.id).order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
 	end
 
 	def create
@@ -27,6 +41,8 @@ class EmissionsController < ApplicationController
 	end
 
 	def show
+		@admin = Admin.find(@emission.admin_id)
+		@episodes = Episode.where(emission_id: @emission.id).order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
 	end
 
 	def edit

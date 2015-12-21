@@ -3,6 +3,7 @@
 <head>
   <title>Emicast</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -23,7 +24,7 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Musique</a></li>
+        <li><%= link_to "Musique", emissions_path(category: "Musique")%></li>
         <li><a href="#">Sports</a></li>
         <li><a href="#">Actualités</a></li>
         <li><a href="#">Divertisemnts</a></li>
@@ -64,6 +65,16 @@
 
   </div>
 </footer>
+
+<script>
+     $(document).ready(function() {
+       setTimeout(function(){
+         $('#notice_wrapper').fadeOut("slow", function(){
+           $this.remove();
+         });
+       }, 4500);
+     });
+ </script>
 
 </body>
 </html>

@@ -11,6 +11,8 @@ gem 'paperclip', '~> 4.3', '>= 4.3.2'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'will_paginate', '~> 3.0', '>= 3.0.7'
+gem 'searchkick', '~> 1.0', '>= 1.0.1'
 
 
 
