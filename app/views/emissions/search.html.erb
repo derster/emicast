@@ -1,12 +1,12 @@
     <div class="container boxDchain2">
 
-    <h2>Les dernières emissions ajoutées</h2>
+    <h2>Resultat de votre recherche (<%= @emissions.count %>)</h2>
 
       	<div class="row boxEpisU">
 	       	
 	       	<% @emissions.each do |emission| %>
 
-	       	<div class="col-md-3 boxemission col-sm-bx-1">
+	       	<div class="col-md-3 boxemission boxEpisode col-sm-bx-1">
 	          
 	          <%= link_to emission_path(emission) do %>
 
@@ -17,6 +17,7 @@
 	                 
 	                  <h4><%= emission.title %></h4>
 	                  <p class="desc"><%= truncate(emission.description, :length => 50) %></p>
+	                  <h4><%= emission.episodes.count %></h4>
 	                    
 	              </div>
 	        	<% end %>

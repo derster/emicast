@@ -1,7 +1,7 @@
 class Category < ActiveRecord::Base
 	belongs_to :admin
 	
-	has_many :emissions
+	belongs_to :emission
 
 	validates :name, presence:{
 		message: "La Category est obligatoire"

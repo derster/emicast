@@ -12,37 +12,45 @@
 
       <div class="episodeDesc">
 
-      <h1 class="nChain"><%= @admin.nom_radio %> / 
+      <h1 class="nChain"><%= @admin.nom_radio %> /  <%= @emission.title %>
         
-        <span class="fmChain">
-            <span><%= link_to image_tag('face.png'), "#" %></span> 
-            <span><%= link_to image_tag('twitter.png'), "#" %></span> 
-            <span><%= link_to image_tag('youtube.png'), "#" %></span>
+        <span class="fmChain"><%= @admin.bande_fm %>
+            <span><%= link_to '<i class="fa fa-facebook-square"></i>'.html_safe, "#" %></span> 
+            <span><%= link_to '<i class="fa fa-twitter-square"></i>'.html_safe, "#" %></span> 
+            <span><%= link_to '<i class="fa fa-youtube-square"></i>'.html_safe, "#" %></span>
         </span>
 
       </h1>
+
+
+      <p class="descEp"><%= @emission.description %></p>
 
 
       </div>
 
       <div class="container contAd2">
 
-      <nav id="bs-navbar" class="collapse navbar-collapse navAd">
+      <% if admin_signed_in? %>
 
-          <ul class="nav navbar-nav">
-              <li><%= link_to "Emissions", emissions_path %></li>
+        <% if current_admin.id == @admin.id %>
 
-              <li><%= link_to "Ajouter une episode",  new_emission_episode_path(@emission) %></li>
+          <nav id="bs-navbar" class="collapse navbar-collapse navAd">
 
-              <li><%= link_to "Editer l'emission", edit_emission_path %></li>
-          </ul>
+              <ul class="nav navbar-nav">
+                  <li><%= link_to "Emissions", emissions_path %></li>
+
+                  <li><%= link_to "Ajouter une episode",  new_emission_episode_path(@emission) %></li>
+
+                  <li><%= link_to "Editer l'emission", edit_emission_path %></li>
+              </ul>
 
 
-      </nav>
+          </nav>
+      <% end %>
 
-      <h2><%= @emission.title %></h2>
+      <% end %>
 
-      <p class="descEp"><%= @emission.description %></p>
+      
 
       </div>
 
@@ -62,39 +70,87 @@
 
       <div class=" boxEpisodeCh">
 
-      <% @episodes.each do |episode| %>
+          <div class="col-sm-8 box-sm8">
 
-          <div class="boxEpisode boxEpOne">
+                  <% @episodes.each do |episode| %>
 
-                <div class="imgBx">
-                    
-                    <%= image_tag episode.thumbnail.url(:medium) %>
+                    <div class="boxEpisode boxEpOne">
 
-                </div>
+                          <div class="imgBx">
+                              
+                              <%= image_tag episode.thumbnail.url(:medium) %>
 
-                <div class="textBx">
-                    
-                    <h3><%=link_to episode.title, emission_episode_path(@emission, episode)  %></h3>
+                          </div>
 
-                    <p class="desc"><%= truncate(episode.description, :length => 120) %></p>
-                    <p class="date"><i class="glyphicon glyphicon-time"></i><%= episode.created_at %></p>
+                          <div class="textBx">
+                              
+                              <h3><%=link_to episode.title, emission_episode_path(@emission, episode)  %></h3>
 
-                     <div class="lien">
+                              <p class="desc"><%= truncate(episode.description, :length => 120) %></p>
+                              <p class="date"><i class="glyphicon glyphicon-time"></i> Publié le <%= episode.created_at.strftime("%d/%m/%Y") %></p>
 
-                         <%= link_to "Ecouter", emission_episode_path(@emission, episode), class:"adLink" %> 
+                               
+                              
 
-                         <a class="adLink" href="#">Supprimer</a> 
 
-                         <%= link_to "Modifier", edit_emission_episode_path(@emission, episode), class:"adLink" %>
+                                     <div class="lien">
 
-                     </div>
-                </div>
-             <div class="clear"></div>
+                                         <%= link_to "Ecouter", emission_episode_path(@emission, episode), class:"adLink" %> 
+                                         <% if admin_signed_in? %>
+
+                                            <% if current_admin.id == @admin.id %>
+
+                                               <a class="adLink" href="#">Supprimer</a> 
+
+                                               <%= link_to "Modifier", edit_emission_episode_path(@emission, episode), class:"adLink" %>
+
+                                            <% end %>
+                                          <% end %>
+
+                                     </div>
+
+                               
+                          </div>
+                       <div class="clear"></div>
+                    </div>
+                 
+                <% end %>
+
+                <%= will_paginate @episodes, previous_label: "&laquo;", next_label: "&raquo;" %>
+        
           </div>
-       
-      <% end %>
 
-      <%= will_paginate @episodes, previous_label: "&laquo;", next_label: "&raquo;" %>
+          <div class="col-sm-4">
+            <div class="row boxEpisU">
+          
+                <% @emissions.each do |emission| %>
+
+                    <div class="boxemission boxEpisode col-sm1">
+                      
+                      <%= link_to emission_path(emission) do %>
+
+                          <%= image_tag emission.thumbnail.url(:medium), class:"imgHeight"%>
+
+                          <div class="boxChain"><%= emission.admin.nom_radio %></div>
+
+                          <div class="bClassP">
+                            <h3><%= emission.category && emission.category.name %></h3>
+                             
+                            <h4><%= emission.title %></h4>
+                              <p class="desc"><%= truncate(emission.description, :length => 50) %></p>
+                            <h4><%= emission.episodes.count %></h4>
+                          </div>
+
+                      <% end %>
+                      
+                    </div>
+
+                <% end %>
+
+            </div>
+          </div>
 
     </div>
 </div>
+
+<%= render 'layouts/partials/footer' %>

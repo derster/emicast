@@ -5,12 +5,7 @@ class EmissionsController < ApplicationController
   	before_filter :require_permission, only: [:edit]
 	
 	def index
-		if params[:category].blank?
-	      @emissions = Emission.all.order("created_at DESC")
-	    else
-	      @category_id = Category.find_by(name: params[:category]).id
-	      @emissions = Emission.where(:category_id => @category_id).order("created_at DESC")
-	    end	
+	  	@emissions = Emission.all.order("created_at DESC")
 	end
 
 	def search
@@ -43,6 +38,7 @@ class EmissionsController < ApplicationController
 	def show
 		@admin = Admin.find(@emission.admin_id)
 		@episodes = Episode.where(emission_id: @emission.id).order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+		@emissions = Emission.where(admin_id: @admin.id).order("created_at DESC").limit(3).reject{ |e| e.id == @emission.id}
 	end
 
 	def edit

@@ -13,7 +13,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'will_paginate', '~> 3.0', '>= 3.0.7'
 gem 'searchkick', '~> 1.0', '>= 1.0.1'
-
+gem 'font-awesome-rails', '~> 4.5'
 
 
 group :development, :test do

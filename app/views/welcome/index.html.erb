@@ -12,7 +12,7 @@
 
                 <div class="form-group">
 
-                  <%= text_field_tag :search, params[:search], class:"form-control search-input", placeholder:"Emissions, Chaine Radio, Episodes..."%>
+                  <%= text_field_tag :search, params[:search], class:"form-control search-input", placeholder:"Emissions..."%>
                 </div>
 
                 <button type="submit" class="btn btn-default btn-rounded"><i class="glyphicon glyphicon-search"></i></button>
@@ -45,7 +45,7 @@
 	                  <h3><%= episode.emission.category.name %></h3>
 	                  <h4><%= episode.emission.title %></h4>
 	                  <p class="desc"><%= truncate(episode.description, :length => 50) %></p>
-	                  <p class="date"><i class="glyphicon glyphicon-time"></i>Publié le <%= episode.created_at %></p>
+	                  <p class="date"><i class="glyphicon glyphicon-time"></i>Publié le <%= episode.created_at.strftime("%d/%m/%Y") %></p>
 	                    
 	              </div>
 	        	<% end %>
@@ -55,6 +55,10 @@
 
     	</div>
 
-    <p class="btn-explore"><a href="#">EXPLORER</a></p>
+
+    <p class="btn-explore"><%= link_to "EXPLORER", emissions_path%></p>
 
     </div>
+
+
+<%= render 'layouts/partials/footer' %>

@@ -15,9 +15,9 @@
           <h1 class="nChain"><%= @admin.nom_radio %> / 
           
               <span class="fmChain"><%= @admin.bande_fm %>
-                  <span><%= link_to image_tag('face.png'), "#" %></span> 
-                  <span><%= link_to image_tag('twitter.png'), "#" %></span> 
-                  <span><%= link_to image_tag('youtube.png'), "#" %></span>
+                  <span><%= link_to '<i class="fa fa-facebook-square"></i>'.html_safe, "#" %></span> 
+                  <span><%= link_to '<i class="fa fa-twitter-square"></i>'.html_safe, "#" %></span> 
+                  <span><%= link_to '<i class="fa fa-youtube-square"></i>'.html_safe, "#" %></span>
               </span>
 
           </h1>
@@ -31,14 +31,11 @@
           <nav id="bs-navbar" class="collapse navbar-collapse navAd">
 
               <ul class="nav navbar-nav">
-                    <li><%= link_to "Emissions", emissions_path %></li>
-
-                    <li><%= link_to "Ajouter une emission", new_emission_path %></li>
-
-
                     <li><%= link_to "Editer le profil", edit_admin_registration_path %></li>
+                    
+                    <li><%= link_to "Ajouter une emission", new_emission_path %></li>
+                    
               </ul>
-
 
           </nav>
 
@@ -65,7 +62,7 @@
                       <h3><%= emission.title %></h3>
 
                       <p class="desc"><%= truncate(emission.description, :length => 120) %></p>
-                      <p class="date"><i class="glyphicon glyphicon-time"></i><%= emission.created_at %></p>
+                      <p class="date"><i class="glyphicon glyphicon-time"></i><%= emission.created_at.strftime("%d/%m/%Y") %></p>
 
                        <div class="lien">
 

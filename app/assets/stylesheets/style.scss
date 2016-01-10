@@ -1,7 +1,7 @@
 body{
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
-    background: #e5e5e5;
+    background: #e1e6ea;
 }
 .clear{
     clear: both;
@@ -42,11 +42,12 @@ a:active, a:focus{
     color: #fff;
 }
 
+
 .navbar-inverse .navbar-nav>li>a {
     color: #fff;
 }
 
-.navbar a:hover, a:focus{
+.navbar a:hover{
     background: #097991 !important;
 }
 
@@ -192,10 +193,22 @@ a:active, a:focus{
 
 
 .boxEpisode a p.date{
-    color: #515151;
-    font-weight: 400;
-    margin-top: 5px;
+    color: #555;
     font-size: 12px;
+    font-weight: normal;
+    display: block;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #efefef;
+}
+
+p.date{
+    font-size: 12px;
+    font-weight: normal;
+    display: block;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #efefef;
 }
 
 a .boxChain{
@@ -244,8 +257,10 @@ footer.footer{
 }
 
 .boxDchain h2{
-    font-size: 25px;
+    font-size: 22px;
     color: #777;
+    margin: 10px;
+    margin-left: -3px;
 }
 
 .boxDchain2{
@@ -254,8 +269,14 @@ footer.footer{
 }
 
 .textEpiso{
-    padding:10px;
+    padding:10px 25px;
     text-align: justify;
+    line-height: 25px;
+    margin-bottom: 90px;
+}
+
+.textEpiso:hover{
+    background: #fff;
 }
 
 .coverLogo{
@@ -275,10 +296,11 @@ footer.footer{
 .nChain{
     margin-top: -12px;
     font-weight: 800;
-    color: #555;
+    color: #777;
     padding: 8px;
     margin-bottom: 0;
     font-size: 24px;
+    font-family: 'Roboto','Helvetica Neue',Helvetica,sans-serif;
 }
 
 .fmChain{
@@ -287,6 +309,20 @@ footer.footer{
     color: #b62f27;
     margin-top: -7px;
     padding: 5px;
+    font-family: 'Roboto','Helvetica Neue',Helvetica,sans-serif;
+
+}
+
+.fmChain i.fa-facebook-square{
+    color: #3765a3;
+}
+
+.fmChain i.fa-twitter-square{
+    color: #5ea9dd;
+}
+
+.fmChain i.fa-youtube-square{
+    color: #d32827;
 }
 
 .contAd{
@@ -297,7 +333,6 @@ footer.footer{
 .contAd2{
     padding-left:0 !important;
     padding-right: 0 !important;
-    margin-top: 60px;
 }
 .contAd2 h2{
     margin-left: 10px;
@@ -336,7 +371,7 @@ span.emi{
 
 p.descEp{
     padding: 10px;
-    padding: 10px;
+    padding-top: 10px;
     font-size: 14px;
     font-weight: 400;
     color: #999;
@@ -346,22 +381,30 @@ p.descEp{
     margin-top: 20px;
     margin-bottom: 10px;
 }
-
+.boxEpisode:hover{
+    background: #edf2f5;
+}
 .imgBx{
     float: left;
-    width: 287px;
-    height: 192px;
+    width: 245px;
+    height: 174px;
     overflow: hidden;
 }
 
 .imgBx img{
-    height: 192px;
-    width: 288px;
+    width: 245px;
+    height: 174px;
 }
 .textBx{
     float: left;
     margin-left: 10px;
-    width: 67%;
+    width: 61%;
+}
+.textBx h3{
+    margin:5px 0;
+}
+.box-sm8{
+    padding-left: 0;
 }
 
 .boxEptwo{
@@ -397,6 +440,10 @@ p.descEp{
     margin: 0;
 }
 
+.imgBxEp{
+    height: 300px;
+    overflow: hidden;
+}
 
 
 .pagination>li:last-child>a, .pagination>li:last-child>span {
@@ -515,6 +562,19 @@ input[type="submit"] {
     height: 90px;
 }
 
+h2.autrEp{
+    font-family: 'Roboto','Helvetica Neue',Helvetica,sans-serif;
+    color: #8c96a0;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 24px 0;
+    line-height: 1;
+}
+
+.col-sm1{
+    background: #fff;
+    margin-bottom: 20px;
+}
 
 
 
@@ -534,6 +594,7 @@ div.jp-type-single{
     bottom: 0;
     background: #2d2d2d;
     padding: 10px;
+    z-index: 9999;
 }
 
 .jp-title{
@@ -576,21 +637,24 @@ div.jp-type-single{
     display: inline-block;
     text-align: center;
     line-height: 27px;
-    border: 1px solid #777;
     border-radius: 30px;
+    font-size: 20px;
+    color: #fff;
 }
 
-.jp-controls .jp-play:hover, .jp-controls .jp-pause:hover{
-    background-color: #888;
+.jp-controls .jp-play:hover, .jp-controls .jp-play:focus, .jp-controls .jp-pause:hover, .jp-controls .jp-pause:focus{
+    background-color: none !important;
 }
 .jp-mute, .jp-unmute{
     position: absolute;
     right: 59px;
-    top:-5px;
+    top:-7px;
     width: 20px;
     height: 30px;
     display: inline-block;
     line-height: 42px;
+    font-size: 20px;
+    color: #fff;
 }
 .jp-mute{
     text-align:left;
@@ -598,7 +662,7 @@ div.jp-type-single{
 .jp-time-holder{
     color:#fff;
     font-size: 12px;
-    line-height: 6px;
+    line-height: 0px;
     position: absolute;
     right: 90px;
     top:14px;
@@ -610,12 +674,12 @@ div.jp-type-single{
     overflow: hidden;
     position: absolute;
     right: 14%;
-    top: 14px;
+    top: 9px;
     width: 82%;
 }
 
 .jp-play-bar{
-    height: 5px;
+    height: 10px;
     background-color: #00a0c2;
     border-radius: 20px 20px 20px 20px;
 }
@@ -623,9 +687,9 @@ div.jp-type-single{
 .jp-volume-bar{
     position: absolute;
     right: 10px;
-    top:14px;
+    top:10px;
     width:45px;
-    height: 5px;
+    height: 10px;
     border-radius:20px 20px 20px 20px;
     background-color: #fff;
     overflow: hidden;
@@ -633,9 +697,12 @@ div.jp-type-single{
 
 .jp-volume-bar-value{
     background-color: #00a0c2;
-    height: 5px;
+    height: 10px;
     border-radius: 20px 20px 20px 20px;
 }
+
+
+
 
 @media (max-width: 992px) and (min-width: 900px){
     
