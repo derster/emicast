@@ -36,10 +36,14 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Musique", emissions_path(category: "Musique")%></li>
-        <li><a href="#">Sports</a></li>
-        <li><a href="#">Actualités</a></li>
-        <li><a href="#">Divertisemnts</a></li>
+      
+              <% Category.all.each do |category| %>
+
+                <li class="<%= 'active' if params[:category] == category.name  %>">
+                    <%= link_to category.name, emissions_path(category: category.name), class: "link" %>
+                </li>
+                
+              <% end %>
 
     		<% unless admin_signed_in? %>
 
@@ -74,12 +78,25 @@
 
 <script>
      $(document).ready(function() {
+
+      $(".detailsHover").hide();
+
        setTimeout(function(){
          $('#notice_wrapper').fadeOut("slow", function(){
            $this.remove();
          });
        }, 4500);
+
+
+       $(".boxEpisode").hover(function(){
+          $(this).find("div.detailsHover").stop(false, true).fadeIn("fast")
+       }, function(){
+          $(this).find("div.detailsHover").stop(false, true).fadeOut("fast")
+       });
+
      });
+
+
  </script>
 
 </body>

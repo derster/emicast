@@ -62,6 +62,12 @@
 
             <% end %>
 
+            <% if @episodes.count != 0 %>
+
+            <%= link_to "Voir plus d'episodes", emission_path(@emission), class:"text-center alink" %>
+
+            <% end %>
+
         </div>
 
     </div>

@@ -24,11 +24,65 @@
         </div>
     </div>
 
-
-
     <div class="container">
+     <h2>Les dernières emissions ajoutées</h2>
 
-    <h2>Les dernières emissions ajoutées</h2>
+    <div class="row boxEpisU">
+          
+          <% @emissions.each do |emission| %>
+
+          <div class="col-md-3 boxemission boxEpisode col-sm-bx-1">
+            
+            <%= link_to emission_path(emission) do %>
+
+                <%= image_tag emission.thumbnail.url(:medium), class:"imgHeight"%>
+
+                <div class="boxChain"><%= emission.admin.nom_radio %></div>
+                <div class="bClassP">
+
+                  <h3><%= emission.category && emission.category.name %></h3>
+                   
+                    <h4><%= emission.title %></h4>
+                    <p class="desc"><%= truncate(emission.description, :length => 50) %></p>
+            <h4><%= emission.episodes.count %> episode<% if emission.episodes.count>=2 %>s<%end %></h4>
+                </div>
+            <% end %>
+
+            <%= link_to emission_path(emission) do %>
+                <div class="detailsHover">
+                  <h2>
+
+                  Voir les episodes <br>
+
+                  <i class="fa fa-play"></i></h2>
+                </div>
+              
+            <% end %>
+
+            
+          </div>
+
+          <% end %>
+
+      </div>
+      </div>
+
+<div class="bs-docs-masthead2">
+
+            <div class="container">
+
+            <h2 class="insCripn">Vous êtes une chaine de radion, diffuser vos contenues à des millions d’auditeurs à travers le monde </h2>
+
+
+            <%= link_to "Inscription", new_admin_registration_path, class:"btn-inscrire"%>
+            
+        </div>
+  
+</div>
+
+<div class="container">
+
+    <h2>Les dernières episodes ajoutées</h2>
 
       	<div class="row boxEpisU">
 	       	
@@ -49,6 +103,19 @@
 	                    
 	              </div>
 	        	<% end %>
+
+            <%= link_to emission_episode_path(episode.emission, episode) do %>
+                <div class="detailsHover">
+                  <h2>
+
+                  Ecouter <br>
+
+                  <i class="fa fa-play"></i>
+
+                  </h2>
+                </div>
+              
+            <% end %>
 	        </div>
 
 	        <% end %>
