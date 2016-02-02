@@ -12,7 +12,7 @@
 
                 <div class="form-group">
 
-                  <%= text_field_tag :search, params[:search], class:"form-control search-input", placeholder:"Emissions..."%>
+                  <%= text_field_tag :search, params[:search], class:"form-control search-input", placeholder:"Chaine radio, Emissions..."%>
                 </div>
 
                 <button type="submit" class="btn btn-default btn-rounded"><i class="glyphicon glyphicon-search"></i></button>
@@ -52,9 +52,9 @@
                 <div class="detailsHover">
                   <h2>
 
-                  Voir les episodes <br>
+                  <span>Voir les episodes</span> <br>
 
-                  <i class="fa fa-play"></i></h2>
+                  <i class="fa fa-file-text"></i></h2>
                 </div>
               
             <% end %>
@@ -71,7 +71,7 @@
 
             <div class="container">
 
-            <h2 class="insCripn">Vous êtes une chaine de radion, diffuser vos contenues à des millions d’auditeurs à travers le monde </h2>
+            <h2 class="insCripn">Vous avez une chaine de radio, diffuser vos contenues à des millions d’auditeurs à travers le monde </h2>
 
 
             <%= link_to "Inscription", new_admin_registration_path, class:"btn-inscrire"%>
@@ -108,7 +108,7 @@
                 <div class="detailsHover">
                   <h2>
 
-                  Ecouter <br>
+                  <span>Ecouter </span><br>
 
                   <i class="fa fa-play"></i>
 

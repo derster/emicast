@@ -25,6 +25,9 @@ a:active, a:focus{
     max-width: 1050px;
     width: 100%;
 }
+.bx-top-header{
+    padding: 0;
+}
 
 .navbar {
     background:#00a0c2;
@@ -51,6 +54,22 @@ a:active, a:focus{
 }
 
 .navbar a:hover{
+    background: #097991 !important;
+}
+a.logoHover{
+    display: block;
+    padding: 4px;
+
+}
+
+
+a.logoHover:hover{
+    background:#00a0c2 !important;
+
+}
+
+.active > a{
+    color: #fff;
     background: #097991 !important;
 }
 
@@ -113,24 +132,45 @@ div.detailsHover{
 }
 
 div.detailsHover h2{
-    margin-top: 60%;
+    margin-top: 50%;
+    border:1px solid #fff;
+    border-radius: 20px;
+    padding: 5px 20px;
+    width: 80%;
+    display: inline-block !important;
+
+}
+
+div.detailsHover h2 span{
+
+
 }
 
 div.detailsHover h2 i{
     color: #fff;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 div.detailsHover:hover h2 i{
     font-size: 50px;
     color: #fff;
-    transition:font-size 1s;
+    transition:font-size 0.3s;
 }
 
-div.detailsHover h2{
-    display: block;
+
+
+div.detailsHover h2 span{
+    display: inline-block;
     color: #fff !important;
     font-size: 15px;
+}
+
+
+div.detailsHover:hover h2 span{
+    display: inline-block;
+    color: #fff !important;
+    font-size: 18px;
+    transition:font-size 0.3s;
 }
 
 .dc-Explore-In{
@@ -264,6 +304,8 @@ div.detailsHover h2{
     border-top: 1px solid #efefef;
 }
 
+
+
 p.date{
     font-size: 12px;
     font-weight: normal;
@@ -343,7 +385,6 @@ footer.footer{
 
 .coverLogo{
     position: absolute;
-    position: absolute;
     top: -110px;
     padding: 10px;
     border: 1px solid #eee;
@@ -414,6 +455,11 @@ footer.footer{
 .navAd a:hover{
     background: #00a0c2 !important;
 }
+.playB{
+    display: inline-block;
+    position: relative;
+    width: 75px;
+}
 
 div.lien a.adLink{
     display: inline-block;
@@ -421,8 +467,35 @@ div.lien a.adLink{
     border-radius: 20px;
     background: #41a305;
     color: #fff;
+    text-align: center;
 }
 
+div.lien a.adLinkPlay{
+    width: 75px;
+    background: #da3e40;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+div.lien a.linkHover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 75px;
+    background: rgba(218, 62, 64, .9);
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: #fff;
+    text-align: center;
+    transition:background 0.3s;
+}
+
+div.lien a.linkHover:hover{
+}
 span.emi{
     display: block;
     font-size: 19px;
@@ -549,17 +622,29 @@ p.descEp{
     box-shadow: 3px 2px 1px #ddd;
     margin: auto;
     padding: 20px;
-    margin-top: 110px;
-    margin-bottom: 70px;
+    margin-top: 65px;
+    margin-bottom: 10px;
+}
+.boxFormB{
+    width: 600px;
+    margin-bottom: 15px;
 }
 
 .boxForm h2{
-    margin: 0;
-    margin-bottom:22px;
+    background: #009dbe;
+    color: #fff;
+    padding: 20px;
+    margin: -20px;
+    margin-bottom: 10px;
     text-align: center;
-    color: #515151;
-    font-size: 30px;
 
+}
+.bForm{
+    width: 600px;
+    background: #d3d8dc;
+    padding: 20px;
+    text-align: center;
+    margin-top: -10px;
 }
 
 .boxForm .form-control {
@@ -594,11 +679,12 @@ input[type="submit"] {
 }
 
 #notice_wrapper{
-    width: 100%;
+    width: 30%;
     position: absolute;
-    background: rgba(208,103,82, 1);
+    background: rgba(221, 56, 66, 1);
     z-index: 100000;
     top:0;
+    right: 0;
 }
 
 #notice_wrapper p{
@@ -607,7 +693,7 @@ input[type="submit"] {
     font-weight: 700;
     font-size: 1.35rem;
     margin: 0 !important;
-    padding: 20px !important;
+    padding: 15px !important;
 }
 
 .imgBxEp img{
@@ -648,6 +734,21 @@ h2.autrEp{
 }
 
 
+.social a i{
+    font-size: 40px;
+}
+
+.social a i.facebook{
+    color: #3b5998;
+}
+
+.social a i.twitter{
+    color: #5ea9dd;
+}
+
+.social a i.google{
+    color: #dc4a38; 
+}
 
 
 

@@ -22,7 +22,7 @@
 
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
+  <div class="container bx-top-header">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         <span class="sr-only">Toggle navigation</span>
@@ -31,7 +31,7 @@
         <span class="icon-bar"></span>
       </button>
       
-      <%= link_to "Emicast.com", root_path, class: "navbar-brand" %>
+      <%= link_to image_tag("logo.png"), root_path, class:"logoHover"%>
 
     </div>
     <div id="navbar" class="navbar-collapse collapse">
@@ -80,9 +80,9 @@
      $(document).ready(function() {
 
       $(".detailsHover").hide();
-
+      $(".linkHover").hide();
        setTimeout(function(){
-         $('#notice_wrapper').fadeOut("slow", function(){
+         $('#notice_wrapper').slideUp("slow", function(){
            $this.remove();
          });
        }, 4500);
@@ -92,6 +92,12 @@
           $(this).find("div.detailsHover").stop(false, true).fadeIn("fast")
        }, function(){
           $(this).find("div.detailsHover").stop(false, true).fadeOut("fast")
+       });
+
+       $(".playB").hover(function(){
+          $(this).find("a.linkHover").stop(false, true).fadeIn("fast")
+       }, function(){
+          $(this).find("a.linkHover").stop(false, true).fadeOut("fast")
        });
 
      });

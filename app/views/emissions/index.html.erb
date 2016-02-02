@@ -6,29 +6,42 @@
 
 
       	<div class="row boxEpisU">
-	       	
-	       	<% @emissions.each do |emission| %>
+          
+          <% @emissions.each do |emission| %>
 
-	       	<div class="col-md-3 boxemission boxEpisode col-sm-bx-1">
-	          
-	          <%= link_to emission_path(emission) do %>
+          <div class="col-md-3 boxemission boxEpisode col-sm-bx-1">
+            
+            <%= link_to emission_path(emission) do %>
 
-	              <%= image_tag emission.thumbnail.url(:medium), class:"imgHeight"%>
+                <%= image_tag emission.thumbnail.url(:medium), class:"imgHeight"%>
 
-	              <div class="boxChain"><%= emission.admin.nom_radio %></div>
-	              <div class="bClassP">
+                <div class="boxChain"><%= emission.admin.nom_radio %></div>
+                <div class="bClassP">
 
-	              	<h3><%= emission.category && emission.category.name %></h3>
-	                 
-	                  <h4><%= emission.title %></h4>
-	                  <p class="desc"><%= truncate(emission.description, :length => 50) %></p>
- 						<h4><%= emission.episodes.count %> episode<% if emission.episodes.count>=2 %>s<%end %></h4>
-	              </div>
-	        	<% end %>
-	        </div>
+                  <h3><%= emission.category && emission.category.name %></h3>
+                   
+                    <h4><%= emission.title %></h4>
+                    <p class="desc"><%= truncate(emission.description, :length => 50) %></p>
+            <h4><%= emission.episodes.count %> episode<% if emission.episodes.count>=2 %>s<%end %></h4>
+                </div>
+            <% end %>
 
-	        <% end %>
+            <%= link_to emission_path(emission) do %>
+                <div class="detailsHover">
+                  <h2>
 
-    	</div>
+                  <span>Voir les episodes</span> <br>
+
+                  <i class="fa fa-file-text"></i></h2>
+                </div>
+              
+            <% end %>
+
+            
+          </div>
+
+          <% end %>
+
+      </div>
 
     </div>

@@ -19,3 +19,8 @@
 @import "style";
 @import "font-awesome";
 
+html.turbolinks-progress-bar::before {
+  background-color: #07edf0 !important;
+  height: 5px !important;
+}
+

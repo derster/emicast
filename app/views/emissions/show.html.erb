@@ -90,13 +90,21 @@
                               <p class="desc"><%= truncate(episode.description, :length => 120) %></p>
                               <p class="date"><i class="glyphicon glyphicon-time"></i> Publié le <%= episode.created_at.strftime("%d/%m/%Y") %></p>
 
-                               
-                              
-
-
                                      <div class="lien">
 
-                                         <%= link_to "Ecouter", emission_episode_path(@emission, episode), class:"adLink" %> 
+
+                                        <span class="playB">
+
+                                            <%= link_to "Ecouter", emission_episode_path(@emission, episode), class:"adLinkPlay" %> 
+                                            
+                                            <%= link_to emission_episode_path(@emission, episode), class:"linkHover" do %>
+                                                <i class="fa fa-play"></i>
+                                            <% end %>
+                                            
+                                        </span>
+                                         
+
+
                                          <% if admin_signed_in? %>
 
                                             <% if current_admin.id == @admin.id %>
@@ -104,7 +112,6 @@
                                                <a class="adLink" href="#">Supprimer</a> 
 
                                                <%= link_to "Modifier", edit_emission_episode_path(@emission, episode), class:"adLink" %>
-
                                             <% end %>
                                           <% end %>
 
@@ -122,33 +129,49 @@
           </div>
 
           <div class="col-sm-4">
+
             <div class="row boxEpisU">
           
                 <% @emissions.each do |emission| %>
 
-                    <div class="boxemission boxEpisode col-sm1">
-                      
-                      <%= link_to emission_path(emission) do %>
+                <div class="boxemission boxEpisode col-sm1">
+                  
+                  <%= link_to emission_path(emission) do %>
 
-                          <%= image_tag emission.thumbnail.url(:medium), class:"imgHeight"%>
+                      <%= image_tag emission.thumbnail.url(:medium), class:"imgHeight"%>
 
-                          <div class="boxChain"><%= emission.admin.nom_radio %></div>
+                      <div class="boxChain"><%= emission.admin.nom_radio %></div>
+                      <div class="bClassP">
 
-                          <div class="bClassP">
-                            <h3><%= emission.category && emission.category.name %></h3>
-                             
-                            <h4><%= emission.title %></h4>
-                              <p class="desc"><%= truncate(emission.description, :length => 50) %></p>
-                            <h4><%= emission.episodes.count %></h4>
-                          </div>
+                        <h3><%= emission.category && emission.category.name %></h3>
+                         
+                          <h4><%= emission.title %></h4>
+                          <p class="desc"><%= truncate(emission.description, :length => 50) %></p>
+                  <h4><%= emission.episodes.count %> episode<% if emission.episodes.count>=2 %>s<%end %></h4>
+                      </div>
+                  <% end %>
 
-                      <% end %>
-                      
-                    </div>
+                  <%= link_to emission_path(emission) do %>
+                      <div class="detailsHover">
+                        <h2>
+
+                        <span>Voir les episodes</span> <br>
+
+                        <i class="fa fa-file-text"></i></h2>
+                      </div>
+                    
+                  <% end %>
+
+                  
+                </div>
 
                 <% end %>
 
             </div>
+
+
+
+
           </div>
 
     </div>
