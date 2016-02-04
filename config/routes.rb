@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :emissions do
   	resources :episodes
-	collection do
+	 collection do
       get 'search'
     end
   end

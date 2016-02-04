@@ -25,6 +25,9 @@ a:active, a:focus{
     max-width: 1050px;
     width: 100%;
 }
+.container h2{
+    margin-left: -5px;
+}
 .bx-top-header{
     padding: 0;
 }
@@ -42,6 +45,10 @@ a:active, a:focus{
 
 .navbar a{
     color:#fff;
+}
+
+div.actions{
+    margin-top: 10px;
 }
 
 .navbar-inverse .navbar-brand {
@@ -734,20 +741,27 @@ h2.autrEp{
 }
 
 
-.social a i{
-    font-size: 40px;
+
+.button{
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    padding: 3px 20px;
+    border-radius: 20px;
+}
+.button i{
+    font-size: 18px;
+}
+.share_facebook{
+    background: #3b5998;
+
 }
 
-.social a i.facebook{
-    color: #3b5998;
+.share_twitter{
+    background: #5ea9dd;
 }
-
-.social a i.twitter{
-    color: #5ea9dd;
-}
-
-.social a i.google{
-    color: #dc4a38; 
+.share_gplus{
+    background: #dc4a38; 
 }
 
 
