@@ -2,6 +2,10 @@ class CategoriesController < ApplicationController
 	before_action :authenticate_admin!
   	before_action :find_categories, only: [:edit, :update, :destroy]
 
+  	def index
+  		@categories = Category.all
+  	end
+
 	def new
 		@category = current_admin.categories.build
 	end

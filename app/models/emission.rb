@@ -4,7 +4,7 @@ class Emission < ActiveRecord::Base
 	belongs_to :category
   has_many :episodes
 
-	   has_attached_file :thumbnail, styles: { medium: "400x400>", thumb: "200x200>" }
+	  has_attached_file :thumbnail, styles: { medium: "400x400>", thumb: "200x200>" }
   	validates_attachment_content_type :thumbnail, content_type: /\Aimage\/.*\Z/
 
   	has_attached_file :cover, styles: { medium: "1152x768>"}
