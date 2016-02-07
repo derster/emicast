@@ -14,7 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'will_paginate', '~> 3.0', '>= 3.0.7'
 gem 'searchkick', '~> 1.0', '>= 1.0.1'
 gem 'font-awesome-rails', '~> 4.5'
-gem 'aws-sdk', '~> 2.2', '>= 2.2.14'
+gem 'aws-sdk', '< 2.0'
 
 
 group :development, :test do
