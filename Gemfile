@@ -15,6 +15,9 @@ gem 'will_paginate', '~> 3.0', '>= 3.0.7'
 gem 'searchkick', '~> 1.0', '>= 1.0.1'
 gem 'font-awesome-rails', '~> 4.5'
 gem 'aws-sdk', '< 2.0'
+gem 'elasticsearch-model', '~> 0.1.8'
+gem 'elasticsearch-rails', '~> 0.1.8'
+gem 'bonsai-elasticsearch-rails', '~> 0.0.4'
 
 
 group :development, :test do
