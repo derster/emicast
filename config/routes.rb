@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   get '/episodes' => 'welcome#episodes', as: 'episodes'
 
   resources :emissions do
-  	resources :episodes
-	 collection do
-      get 'search'
-    end
+  	 resources :episodes
+  	 collection do
+        get 'search'
+      end
   end
 
   resources :categories

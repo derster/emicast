@@ -1,12 +1,12 @@
-    <% provide(:title, "Resultat de la recherche - Emicast") %>
+<% provide(:title, "Resultat de la recherche - Emicast") %>
 
-    <div class="container boxDchain2">
+<div class="container boxDchain2">
 
-    <h2>Resultat de votre recherche (<%= @emissions.count %>)</h2>
+<h2>Resultat de votre recherche (<%= @emissions.count %>)</h2>
 
-      	<div class="row boxEpisU">
-          
-          <% @emissions.each do |emission| %>
+  	<div class="row boxEpisU">
+      
+      <% @emissions.each do |emission| %>
 
           <div class="col-md-3 boxemission boxEpisode col-sm-bx-1">
             
@@ -14,33 +14,31 @@
 
                 <%= image_tag emission.thumbnail.url(:medium), class:"imgHeight"%>
 
-                <div class="boxChain"><%= emission.admin.nom_radio %></div>
-                <div class="bClassP">
+                      <div class="boxChain"><%= emission.admin.nom_radio %></div>
+                      <div class="bClassP">
 
-                  <h3><%= emission.category && emission.category.name %></h3>
-                   
-                    <h4><%= emission.title %></h4>
-                    <p class="desc"><%= truncate(emission.description, :length => 50) %></p>
-            <h4><%= emission.episodes.count %> episode<% if emission.episodes.count>=2 %>s<%end %></h4>
-                </div>
-            <% end %>
+                        <h3><%= emission.category && emission.category.name %></h3>
+                         
+                          <h4><%= emission.title %></h4>
+                          <p class="desc"><%= truncate(emission.description, :length => 50) %></p>
+                          <h4><%= emission.episodes.count %> episode<% if emission.episodes.count>=2 %>s<%end %></h4>
+                      </div>
+                <% end %>
 
-            <%= link_to emission_path(emission) do %>
-                <div class="detailsHover">
-                  <h2>
+                <%= link_to emission_path(emission) do %>
+                    <div class="detailsHover">
+                      <h2>
 
-                  <span>Voir les episodes</span> <br>
+                      <span>Voir les episodes</span> <br>
 
-                  <i class="fa fa-file-text"></i></h2>
-                </div>
-              
-            <% end %>
-
-            
+                      <i class="fa fa-file-text"></i></h2>
+                    </div>
+                  
+                <% end %>
           </div>
 
-          <% end %>
-
-      </div>
+      <% end %>
 
     </div>
+
+</div>

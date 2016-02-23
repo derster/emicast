@@ -10,22 +10,22 @@
 
           <div class="field">
             <%= f.label :nom %><br />
-            <%= f.text_field :nom, autofocus: true, class: "form-control" %>
+            <%= f.text_field :nom, autofocus: true, class: "form-control", required:true %>
           </div>
 
           <div class="field">
             <%= f.label :email %><br />
-            <%= f.email_field :email, class: "form-control" %>
+            <%= f.email_field :email, class: "form-control", required:true %>
           </div>
 
           <div class="field">
             <%= f.label :nom_radio %><br />
-            <%= f.text_field :nom_radio, class: "form-control" %>
+            <%= f.text_field :nom_radio, class: "form-control", required:true %>
           </div>
 
           <div class="field">
             <%= f.label :bande_fm %><br />
-            <%= f.text_field :bande_fm, class: "form-control" %>
+            <%= f.text_field :bande_fm, class: "form-control", required:true  %>
           </div>
 
           <div class="field">
@@ -55,19 +55,12 @@
             <%= f.submit "Envoyer" %>
           </div>
         <% end %>
-
-        
 </div>
 
 <div class="bForm">
   <%= render "devise/shared/links" %>
 
 </div>
-  
-  
+
+
 </div>
-
-
-
-
-
