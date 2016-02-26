@@ -24,7 +24,7 @@
     </div>
 
     <div class="container">
-     <h2>Les dernières emissions ajoutées</h2>
+     <h2 class="titleEmi">Les dernières emissions ajoutées</h2>
 
     <div class="row boxEpisU">
           
@@ -66,22 +66,9 @@
       </div>
       </div>
 
-<div class="bs-docs-masthead2">
-
-            <div class="container">
-
-            <h2 class="insCripn">Vous avez une chaine de radio, diffuser vos contenues à des millions d’auditeurs à travers le monde </h2>
-
-
-            <%= link_to "Inscription", new_admin_registration_path, class:"btn-inscrire"%>
-            
-        </div>
-  
-</div>
-
 <div class="container">
 
-    <h2>Les dernières episodes ajoutées</h2>
+    <h2 class="titleEmi">Les dernières episodes ajoutées</h2>
 
       	<div class="row boxEpisU">
 	       	
@@ -125,6 +112,19 @@
     <p class="btn-explore"><%= link_to "EXPLORER", emissions_path%></p>
 
     </div>
+
+    <div class="bs-docs-masthead2">
+
+            <div class="container">
+
+            <h2 class="insCripn">Vous avez une chaine de radio, diffuser vos contenues à des millions d’auditeurs à travers le monde </h2>
+
+
+            <%= link_to "Inscription", new_admin_registration_path, class:"btn-inscrire"%>
+            
+        </div>
+  
+</div>
 
 
 <%= render 'layouts/partials/footer' %>
