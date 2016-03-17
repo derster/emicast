@@ -30,6 +30,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description, class: "form-control", required:true  %>
+  </div>
+
+  <div class="field">
     <%= f.label :logo_radio %>
     <%= f.file_field :logo_radio  %>
   </div>

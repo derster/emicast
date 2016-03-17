@@ -9,6 +9,8 @@ class Admin < ActiveRecord::Base
   validates :nom_radio, presence: true
   validates :bande_fm, presence: true
 
+  validates :description, presence: true
+
   has_many :emissions
 
   has_many :categories

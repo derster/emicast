@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :nom, :nom_radio, :bande_fm, :logo_radio, :cover_radio)}
-    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :current_password, :nom, :nom_radio, :bande_fm, :logo_radio, :cover_radio)}
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :nom, :nom_radio, :bande_fm, :logo_radio, :cover_radio, :description)}
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :current_password, :nom, :nom_radio, :bande_fm, :logo_radio, :cover_radio, :description)}
   end
 end

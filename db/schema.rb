@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151219093854) do
+ActiveRecord::Schema.define(version: 20160317160754) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                    default: "", null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20151219093854) do
     t.string   "cover_radio_content_type"
     t.integer  "cover_radio_file_size"
     t.datetime "cover_radio_updated_at"
+    t.text     "description"
   end
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
